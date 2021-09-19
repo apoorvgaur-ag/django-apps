@@ -1,0 +1,33 @@
+
+{% block title %}
+<Enter your page title here>
+{% endblock %}
+
+
+<!-- You can make a customised form for the page, I have just entered the information that I required for my use case -->
+
+{% block main %} <!-- This code is to use this template in tandem with a base.html for the entire project -->
+
+	<div>
+		<form id="login_form" method="POST"> {% csrf_token %}
+			{{ customer_form.non_field_errors }}
+			<div>
+				<div>
+					<h3>Login / Sign Up</h3>
+					<!-- Aim is to create a form where name and mob no are entered and the mobile number is treated as the primary key -->
+				</div>
+				<div>
+					{{ customer_form.name }}
+					{{ customer_form.name.errors }}
+				</div>
+				<div>
+					{{ customer_form.mob_no }}
+					{{ customer_form.mob_no.errors }}
+				</div>
+				<div>
+					<button type="submit" id="login_button" name="menu_login_form_submit">Next</button>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock %}
